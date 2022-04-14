@@ -5,10 +5,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Moving</title>
-    <link rel="stylesheet" href="./public/build/tailwind.css" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./dist/app.js" defer></script>
   </head>
-  <body>
-    <h1 class="text-3xl font-bold">Hello world!</h1>
+  <body style="background-image: url(./assets/cool-background.png)">
+    <div class="max-w-5xl min-w-fit w-1/2 border ml-auto mr-auto">
+      <!--app-->
+      <header class="p-2 w-full h-22 bg-black text-red-700">
+        <h1 class="text-center">Moving</h1>
+        <ul class="flex w-full justify-center mt-4">
+          <li>
+            <button
+              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
+            >
+              image
+            </button>
+          </li>
+          <li>
+            <button
+              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
+            >
+              video
+            </button>
+          </li>
+          <li>
+            <button
+              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
+            >
+              note
+            </button>
+          </li>
+          <li>
+            <button
+              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
+            >
+              todo
+            </button>
+          </li>
+        </ul>
+      </header>
+      <main class="document"></main>
+      <footer>
+        <p>Moving service</p>
+      </footer>
+    </div>
   </body>
 </html>
