@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Hyeong-Yun/moving-project/issues"
   },
-  "homepage": "https://github.com/Hyeong-Yun/moving-project#readme"
+  "homepage": "https://github.com/Hyeong-Yun/moving-project#readme",
+  "dependencies": {
+    "typescript": "^4.6.3"
+  }
 }
