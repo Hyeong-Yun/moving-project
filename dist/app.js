@@ -1,20 +1,37 @@
+import { TextSectionInput } from "./components/dialog/input/text-input.js";
+import { MediaSectionInput } from "./components/dialog/input/media-input.js";
+import { InputDialog } from "./components/dialog/dialog.js";
 import { VideoComponet } from "./components/page/item/video.js";
-import { TodoComponent } from "./components/page/item/takTo.js";
+import { TodoComponent } from "./components/page/item/todo.js";
 import { NoteComponent } from "./components/page/item/note.js";
 import { ImageComponet } from "./components/page/item/image.js";
-import { PageComponent } from "./components/page/page.js";
+import { PageComponent, PageItemComponent, } from "./components/page/page.js";
 class App {
-    constructor(appRoot) {
-        this.page = new PageComponent();
+    constructor(appRoot, dialogRoot) {
+        this.dialogRoot = dialogRoot;
+        this.page = new PageComponent(PageItemComponent);
         this.page.attachTo(appRoot);
-        const image = new ImageComponet("Image title", "https://i.picsum.photos/id/967/200/300.jpg?hmac=N516I7nonEwIoem47eN9JDOoQOXjDLqpDz98BaZz3qc");
-        this.page.addChild(image);
-        const note = new NoteComponent("note", "this is first note");
-        this.page.addChild(note);
-        const todo = new TodoComponent("things to do", "stufy for midterm exam");
-        this.page.addChild(todo);
-        const video = new VideoComponet("Video Title", "https://youtu.be/K3-jG52XwuQ");
-        this.page.addChild(video);
+        this.bindElementToDialog("#new-image", MediaSectionInput, (input) => new ImageComponet(input.title, input.url));
+        this.bindElementToDialog("#new-video", MediaSectionInput, (input) => new VideoComponet(input.title, input.url));
+        this.bindElementToDialog("#new-note", TextSectionInput, (input) => new NoteComponent(input.title, input.body));
+        this.bindElementToDialog("#new-todo", TextSectionInput, (input) => new TodoComponent(input.title, input.body));
+    }
+    bindElementToDialog(selector, InputComponent, makeSection) {
+        const imageBtn = document.querySelector(selector);
+        imageBtn.addEventListener("click", () => {
+            const dialog = new InputDialog();
+            const input = new InputComponent();
+            dialog.addChild(input);
+            dialog.attachTo(this.dialogRoot);
+            dialog.setOncloseListener(() => {
+                dialog.removeFrom(this.dialogRoot);
+            });
+            dialog.setOnSubmitListener(() => {
+                const image = makeSection(input);
+                this.page.addChild(image);
+                dialog.removeFrom(this.dialogRoot);
+            });
+        });
     }
 }
-new App(document.querySelector(".document"));
+new App(document.querySelector(".document"), document.body);
