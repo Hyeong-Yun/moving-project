@@ -2,56 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Moving</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="./dist/app.js" defer></script>
+    <title>Motion</title>
     <link rel="stylesheet" href="./style/app.css" />
+    <script type="module" src="./dist/app.js" defer></script>
   </head>
-  <body style="background-image: url(./assets/cool-background.png)">
-    <div class="max-w-5xl min-w-fit w-1/2 border ml-auto mr-auto">
-      <!--app-->
-      <header class="p-2 w-full h-22 bg-black text-red-700">
-        <h1 class="text-center">Moving</h1>
-        <ul class="flex w-full justify-center mt-4">
-          <li>
-            <button
-              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
-              id="new-image"
-            >
-              image
-            </button>
-          </li>
-          <li>
-            <button
-              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
-              id="new-video"
-            >
-              video
-            </button>
-          </li>
-          <li>
-            <button
-              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
-              id="new-note"
-            >
-              note
-            </button>
-          </li>
-          <li>
-            <button
-              class="p-1 cursor-pointer text-xs px-4 mx-1 bg-red-700 text-white hover:scale-105 transition-all"
-              id="new-todo"
-            >
-              todo
-            </button>
-          </li>
+  <body>
+    <div class="app">
+      <header class="banner">
+        <h1 class="banner__title">Moving</h1>
+        <ul class="control-panel">
+          <li><button id="new-image" class="create-button">Image</button></li>
+          <li><button id="new-video" class="create-button">Video</button></li>
+          <li><button id="new-note" class="create-button">Note</button></li>
+          <li><button id="new-todo" class="create-button">Todo</button></li>
         </ul>
       </header>
       <main class="document"></main>
-      <footer></footer>
     </div>
   </body>
 </html>

@@ -19,6 +19,7 @@ export class InputDialog
       <button class="dialog__submit">ADD</button>
     </div>
   </dialog>`);
+
     const closeBtn = this.element.querySelector(".close")! as HTMLElement;
 
     closeBtn.onclick = () => {

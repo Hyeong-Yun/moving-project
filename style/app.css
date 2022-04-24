@@ -53,7 +53,7 @@ textarea {
 }
 
 body {
-  background: url("../assets/background.png") center/cover no-repeat;
+  background: url("../assets/cool-background.png") center/cover no-repeat;
   font-family: Roboto, Oxygen, sans-serif;
   display: flex;
   justify-content: center;
@@ -106,6 +106,8 @@ body {
 .document {
   height: 80%;
   overflow-y: auto;
+  margin: 0 auto;
+  width: 70%;
   background-color: var(--document-bg-color);
   /* Firefox */
   scrollbar-width: 6px;
